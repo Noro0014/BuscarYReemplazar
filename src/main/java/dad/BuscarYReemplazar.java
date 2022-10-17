@@ -20,9 +20,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
@@ -89,6 +91,14 @@ public class BuscarYReemplazar extends Application {
 	 };
 	
 	root.getColumnConstraints().setAll(cols);
+	cols[0].setMinWidth(Control.USE_PREF_SIZE);
+	cols[1].setMinWidth(Control.USE_PREF_SIZE);
+	
+	
+	
+	
+	
+	
 	
 	RowConstraints[] rows = { new RowConstraints(), 
 			new RowConstraints(), 
@@ -96,6 +106,11 @@ public class BuscarYReemplazar extends Application {
 			};
 
 	root.getRowConstraints().setAll(rows);
+	
+	cols[0].setMinWidth(Control.USE_PREF_SIZE);
+	cols[1].setMinWidth(Control.USE_PREF_SIZE);
+	
+	
 	
 	ColumnConstraints[] colsCheckbox = {
 			new ColumnConstraints(), 
@@ -111,6 +126,10 @@ public class BuscarYReemplazar extends Application {
 
 	checkboxs.getRowConstraints().setAll(rowsCheckBox);
 	
+	cols[0].setHalignment(HPos.RIGHT);
+	cols[1].setHgrow(Priority.ALWAYS);
+	cols[1].setMinWidth(80);
+	
 	
 	
 	VBox buttonsPanel = new VBox(5, buscarButton, reemplazarButton, reemplazarTodoButton, cerrarButton, ayudaButton);
@@ -123,12 +142,23 @@ public class BuscarYReemplazar extends Application {
 	ayudaButton.setMaxWidth(Double.MAX_VALUE);
 	
 	
+	buttonsPanel.setMinWidth(Control.USE_PREF_SIZE);
+	
+	
+	
+	
+	
+	
 	
 	HBox todoJunto = new HBox();
+	
 	todoJunto.getChildren().setAll(root, buttonsPanel);
+	//todoJunto.setLeft(root);
+	//todoJunto.setRight(buttonsPanel);
+	
 	
 	primaryStage.setTitle("Buscar y reemplazar");
-	primaryStage.setScene(new Scene(todoJunto, 640, 480));
+	primaryStage.setScene(new Scene(todoJunto, Control.USE_PREF_SIZE, 240));
 	primaryStage.show();
 	
 	}
