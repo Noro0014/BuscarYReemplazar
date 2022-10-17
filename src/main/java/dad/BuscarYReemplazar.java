@@ -73,14 +73,14 @@ public class BuscarYReemplazar extends Application {
 	checkboxs.addRow(0, mayusMinusCheckBox, buscarHaciaAtrasCheckBox);
 	checkboxs.addRow(1, expresionRegularCheckBox, resaltarResultadosCheckBox);
 	
-	GridPane root = new GridPane();
+	GridPane table = new GridPane();
 	//root.setGridLinesVisible(true); // Depuracion
-	root.setPadding(new Insets(5));
-	root.setHgap(5);
-	root.setVgap(5);
-	root.addRow(0, buscarLabel, buscarTextField);
-	root.addRow(1, reemplazarLabel, reemplazarTextField);
-	root.addRow(2, new Label(""), checkboxs);
+	table.setPadding(new Insets(5));
+	table.setHgap(5);
+	table.setVgap(5);
+	table.addRow(0, buscarLabel, buscarTextField);
+	table.addRow(1, reemplazarLabel, reemplazarTextField);
+	table.addRow(2, new Label(""), checkboxs);
 	
 	
 	
@@ -90,7 +90,7 @@ public class BuscarYReemplazar extends Application {
 			new ColumnConstraints(), 
 	 };
 	
-	root.getColumnConstraints().setAll(cols);
+	table.getColumnConstraints().setAll(cols);
 	cols[0].setMinWidth(Control.USE_PREF_SIZE);
 	cols[1].setMinWidth(Control.USE_PREF_SIZE);
 	
@@ -105,7 +105,7 @@ public class BuscarYReemplazar extends Application {
 			new RowConstraints() 
 			};
 
-	root.getRowConstraints().setAll(rows);
+	table.getRowConstraints().setAll(rows);
 	
 	cols[0].setMinWidth(Control.USE_PREF_SIZE);
 	cols[1].setMinWidth(Control.USE_PREF_SIZE);
@@ -150,15 +150,15 @@ public class BuscarYReemplazar extends Application {
 	
 	
 	
-	HBox todoJunto = new HBox();
+	HBox root = new HBox();
 	
-	todoJunto.getChildren().setAll(root, buttonsPanel);
+	root.getChildren().setAll(table, buttonsPanel);
 	//todoJunto.setLeft(root);
 	//todoJunto.setRight(buttonsPanel);
 	
 	
 	primaryStage.setTitle("Buscar y reemplazar");
-	primaryStage.setScene(new Scene(todoJunto, Control.USE_PREF_SIZE, 240));
+	primaryStage.setScene(new Scene(root, Control.USE_PREF_SIZE, 240));
 	primaryStage.show();
 	
 	}
